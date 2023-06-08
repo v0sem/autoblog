@@ -1,13 +1,14 @@
 use std::fs;
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Section {
     title: String,
     content: String,
     subsections: Vec<Section>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Post {
     sections: Vec<Section>,
     title: String,
@@ -84,14 +85,15 @@ impl Section {
             };
         }
         let mut sec_depth = lines[i].split("!").collect::<Vec<&str>>()[1].len();
-        let mut ssec: Vec<Section> = Vec::new();
+        let mut ssecs: Vec<Section> = Vec::new();
 
         while sec_depth > depth {
-            ssec.push(Section::from_vec(&lines, i, sec_depth));
-            i += 2;
+            let subsec = Section::from_vec(&lines, i, sec_depth);
+            i += subsec.len();
+            ssecs.push(subsec);
 
             if i >= lines.len() {
-                break;
+                sec_depth = depth;
             }
             else {
                 sec_depth = lines[i].split("!").collect::<Vec<&str>>()[1].len();
@@ -101,7 +103,7 @@ impl Section {
         Section {
             title: lines[section_start].split("!").collect::<Vec<&str>>()[2].to_owned(),
             content: lines[section_start+1].to_owned(),
-            subsections: ssec,
+            subsections: ssecs,
         }
     }
 
