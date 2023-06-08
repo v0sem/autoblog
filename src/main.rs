@@ -31,7 +31,6 @@ pub fn blog(path: &str) -> Template {
     else {
         let full_path = found_path.unwrap().into_string().unwrap();
         let post = Post::from_file(&full_path);
-        println!("{}", post.build_html());
         return Template::render("post", context!{
             post: post.build_html(),
         })

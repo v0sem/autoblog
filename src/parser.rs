@@ -17,7 +17,7 @@ pub struct Post {
 
 impl Post {
     pub fn build_html(&self) -> String {
-        let mut html: String = format!("<h1>{}</h1>\n<p>{}</p>\n", &self.title, &self.content);
+        let mut html: String = format!("<h1 class=\"blog\">{}</h1>\n<p class=\"blog\">{}</p><br><br>\n", &self.title, &self.content);
 
         for section in &self.sections {
             let html_section: &str = &section.build_html(2);
@@ -63,8 +63,8 @@ impl Post {
 
 impl Section {
     pub fn build_html(&self, depth: i32) -> String {
-        let mut html: String = format!("<h{}>{}</h{}>\n", depth, &self.title, depth);
-        let content: &str = &format!("<p>{}</p>\n", &self.content);
+        let mut html: String = format!("<h{} class=\"blog\">{}</h{}>\n", depth, &self.title, depth);
+        let content: &str = &format!("<p class=\"blog\">{}</p><br><br>\n", &self.content);
         html.push_str(content);
 
         for subsection in &self.subsections {

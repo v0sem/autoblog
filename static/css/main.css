@@ -29,6 +29,57 @@ h1 {
     width: 100%;
 }
 
+br {
+    display: block; /* makes it have a width */
+    content: ""; /* clears default height */
+    margin-top: 15px; /* change this to whatever height you want it */
+}
+
+p.blog {
+    width: 70%;
+    margin: auto;
+    padding-top: 20px;
+    text-align: left;
+    font-size: 16px;
+}
+
+h1.blog {
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    font-size: 48px;
+    color: var(--rose);
+    margin: auto;
+    width: 100%;
+}
+
+h2.blog {
+    text-align: left;
+    font-size: 30px;
+    color: var(--rose);
+    margin: auto;
+    width: 75%;
+}
+
+h3.blog, h4.blog, h5.blog, h6.blog {
+    text-align: left;
+    font-size: 130%; 
+    color: var(--rose);
+    margin: auto;
+    width: 72%;
+}
+
+h4.blog {
+    font-size: 125%;
+}
+
+h5.blog {
+    font-size: 120%;
+}
+
+h6.blog {
+    font-size: 115%;
+}
+
 img {
     width: 100%;
 }

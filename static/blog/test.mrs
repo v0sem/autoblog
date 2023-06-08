@@ -7,7 +7,7 @@ This is text for the subsection
 !##! POST SECTION 2
 This is text for the second section
 !###! POST SUBSECTION 2-1
-This is text for the first subsection of the second section</p><p>Testing multiple paragraphs
+This is text for the first subsection of the second section <br> Testing multiple paragraphs
 !####! POST SUBSUBSECTION 2-1-1
 Holy hell
 !#####! POST SUBSUBSUBSECTION 2-1-1-1
